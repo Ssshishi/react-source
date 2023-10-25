@@ -387,6 +387,7 @@ const listeningMarker =
     .toString(36)
     .slice(2);
 
+// 监听所有支持的事件 事件注册
 export function listenToAllSupportedEvents(rootContainerElement: EventTarget) {//事件注册
   console.error(`这里先总结下React的事件，初始化时候React会把所有的浏览器事件绑定到传入的container上面，绑定的事件是一个带有优先级包装过的listenr。如果传入的是注释标签就绑定在它父元素上面，
   并且定义一个map映射表，把原生事件和react事件相对应，当触发一个事件的时候实际是触发初始化时候绑定的listenr，执行这个listenr时会从触发的target向上到root递归收集相同react事件，
@@ -420,6 +421,7 @@ export function listenToAllSupportedEvents(rootContainerElement: EventTarget) {/
   }
 }
 let log = 0
+// 添加捕获事件监听器
 function addTrappedEventListener(
   targetContainer: EventTarget,
   domEventName: DOMEventName,
